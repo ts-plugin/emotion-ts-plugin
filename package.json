@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "module": "esm/index.js",
   "types": "lib/index.d.ts",
-  "repository": "git@github.com:LeetCode-OpenSource/emotion-ts-plugin.git",
+  "repository": "https://github.com/Brooooooklyn/emotion-ts-plugin",
   "author": "lynweklm@gmail.com",
   "license": "MIT",
   "scripts": {
