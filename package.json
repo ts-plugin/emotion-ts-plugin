@@ -55,7 +55,7 @@
     "@emotion/hash": "^0.8.0",
     "convert-source-map": "^1.7.0",
     "find-root": "^1.1.0",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "source-map": "^0.7.3",
     "tslib": "^2.1.0"
   },
