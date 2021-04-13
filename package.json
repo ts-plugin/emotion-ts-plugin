@@ -61,7 +61,7 @@
     "find-root": "^1.1.0",
     "lodash": "^4.17.21",
     "source-map": "^0.7.3",
-    "tslib": "^2.1.0"
+    "tslib": "^2.2.0"
   },
   "files": ["lib/**", "esm/**"],
   "jest": {
