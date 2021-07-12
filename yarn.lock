@@ -1013,10 +1013,10 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
-"@types/convert-source-map@^1.5.1":
-  version "1.5.1"
-  resolved "https://registry.npmjs.org/@types/convert-source-map/-/convert-source-map-1.5.1.tgz#d4d180dd6adc5cb68ad99bd56e03d637881f4616"
-  integrity sha512-laiDIXqqthjJlyAMYAXOtN3N8+UlbM+KvZi4BaY5ZOekmVkBs/UxfK5O0HWeJVG2eW8F+Mu2ww13fTX+kY1FlQ==
+"@types/convert-source-map@^1.5.2":
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/@types/convert-source-map/-/convert-source-map-1.5.2.tgz#318dc22d476632a4855594c16970c6dc3ed086e7"
+  integrity sha512-tHs++ZeXer40kCF2JpE51Hg7t4HPa18B1b1Dzy96S0eCw8QKECNMYMfwa1edK/x8yCN0r4e6ewvLcc5CsVGkdg==
 
 "@types/eslint-scope@^3.7.0":
   version "3.7.0"
