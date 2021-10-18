@@ -40,7 +40,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "html-webpack-plugin": "^5.3.2",
     "husky": "7",
-    "jest": "^27.2.5",
+    "jest": "^27.3.0",
     "jest-specific-snapshot": "^5.0.0",
     "lint-staged": "^11.2.3",
     "mini-css-extract-plugin": "^2.4.2",
