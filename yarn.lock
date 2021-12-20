@@ -962,20 +962,20 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@swc-node/core@^1.8.1":
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/@swc-node/core/-/core-1.8.1.tgz#ad1011491eaaf8d6788d68dc688ae5e8cbc50960"
-  integrity sha512-Uv0XF6BrDcjXCdq19bQC3/3uMuJEydFFyfXuTY7r7wHea5iq3cyY8uSBr4BcV9/2H/e8Y+Q6rdWr7OK4kGTOKQ==
+"@swc-node/core@^1.8.2":
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/@swc-node/core/-/core-1.8.2.tgz#950ad394a8e8385658e6a951ec554bbf61a1693e"
+  integrity sha512-IoJ7tGHQ6JOMSmFe4VhP64uLmFKMNasS0QEgUrLFQ0h/dTvpQMynnoGBEJoPL6LfsebZ/q4uKqbpWrth6/yrAA==
   dependencies:
     "@swc/core" "^1.2.119"
 
-"@swc-node/jest@^1.4.2":
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/@swc-node/jest/-/jest-1.4.2.tgz#cad7073f215b1073f33129db2e6bd5371cc206e0"
-  integrity sha512-1HMhHuiIrt7NUj8aswQAe+yJNvBI91HnPssINlUtWjLH3+EBm1T6kfdzEWmLV6nlawX6IZOWLrIHWkg4pbvyow==
+"@swc-node/jest@^1.4.3":
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/@swc-node/jest/-/jest-1.4.3.tgz#e43d01ce8bc392ccabf8c969fc5335cf5e4d6664"
+  integrity sha512-pMWida9hKd/c6fUor+Sd+Oikxl7X23o9U/MmXsaPEt2gWx5Ar9JjGo0h0Vd30h5Cua2F0FD4/42qeAmMj0qskw==
   dependencies:
     "@node-rs/xxhash" "^1.0.1"
-    "@swc-node/core" "^1.8.1"
+    "@swc-node/core" "^1.8.2"
 
 "@swc/core-android-arm64@^1.2.119":
   version "1.2.119"
