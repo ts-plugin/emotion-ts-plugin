@@ -11,11 +11,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Use Node.js 14.x
+      - name: Use Node.js 16.x
         uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: 16
           check-latest: true
+          cache: yarn
 
       - name: Cache NPM dependencies
         uses: actions/cache@v2
@@ -58,8 +59,9 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: 16
           check-latest: true
+          cache: yarn
 
       - name: Cache NPM dependencies
         uses: actions/cache@v2

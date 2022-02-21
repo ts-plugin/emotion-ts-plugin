@@ -11,12 +11,8 @@
   "scripts": {
     "build": "tsc -p tsconfig.json --outDir lib --diagnostics && tsc -p tsconfig.json -m esnext --outDir esm --diagnostics",
     "dev": "tsc -p tsconfig.json --outDir lib --diagnostics -w",
-    "format": "run-p format:md format:json format:source format:yml",
-    "format:json": "prettier --parser json --write '**/*.json'",
-    "format:md": "prettier --parser markdown --write './*.md'",
-    "format:source": "prettier --config ./package.json './{src,tests}/**/*.{ts,tsx,js}' --write",
-    "format:yml": "prettier --parser yaml --write './*.{yml,yaml}'",
-    "lint": "eslint . -c ./.eslintrc.yml '{src,tests}/**/*.{js,ts,tsx}'",
+    "format": "prettier . --write",
+    "lint": "eslint . -c ./.eslintrc.yml",
     "start": "webpack serve --progress --color",
     "test": "jest --no-cache --ci",
     "postinstall": "husky install",
@@ -32,9 +28,9 @@
     "@types/jest": "^27.4.0",
     "@types/lodash": "^4.14.178",
     "@types/react-dom": "^17.0.11",
-    "@typescript-eslint/eslint-plugin": "^4.33.0",
-    "@typescript-eslint/parser": "^4.33.0",
-    "eslint": "^7.32.0",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.9.0",
     "eslint-config-prettier": "^8.4.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-prettier": "^4.0.0",
@@ -46,12 +42,12 @@
     "mini-css-extract-plugin": "^2.5.3",
     "npm-run-all": "^4.1.5",
     "pinst": "^3.0.0",
-    "prettier": "^2.2.1",
+    "prettier": "^2.5.1",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "ts-loader": "^9.2.6",
-    "typescript": "^4.2.4",
+    "typescript": "^4.5.5",
     "webpack": "^5.69.1",
     "webpack-cli": "^4.9.2"
   },
@@ -63,27 +59,41 @@
     "source-map": "^0.7.3",
     "tslib": "^2.3.1"
   },
-  "files": ["lib/**", "esm/**"],
+  "peerDependencies": {
+    "typescript": ">= 4.2"
+  },
+  "files": [
+    "lib/**",
+    "esm/**"
+  ],
   "jest": {
     "preset": "@swc-node/jest",
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx"],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
     "testRegex": "/tests/.*\\.spec\\.(j|t)sx?$",
     "collectCoverage": true,
-    "collectCoverageFrom": ["src/**/*.ts"]
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ]
   },
   "prettier": {
     "printWidth": 80,
     "semi": false,
     "singleQuote": true,
     "trailingComma": "all",
-    "arrowParens": "always",
-    "parser": "typescript"
+    "arrowParens": "always"
   },
   "lint-staged": {
-    "*.@(js|ts|tsx)": ["prettier --write", "eslint -c .eslintrc.yml --fix"],
-    "*.@(yml|yaml)": ["prettier --parser yaml --write"],
-    "*.md": ["prettier --parser markdown --write"],
-    "*.json": ["prettier --parser json --write"]
+    "*.@(js|ts|tsx)": [
+      "eslint -c .eslintrc.yml --fix"
+    ],
+    "*.@(js|ts|tsx|yml|yaml|md|json)": [
+      "prettier --write"
+    ]
   },
   "funding": {
     "type": "github",
