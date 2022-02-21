@@ -1,0 +1,6 @@
+coverage
+.swc
+.husky
+node_modules
+esm
+lib

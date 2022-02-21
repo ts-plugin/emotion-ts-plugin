@@ -21,8 +21,6 @@ interface ImportInfo extends ModuleConfig {
   type: 'namedImport' | 'namespaceImport' | 'defaultImport'
 }
 
-const FACTORY: typeof ts.factory = 'factory' in ts ? ts.factory : ts
-
 export interface Options {
   sourcemap?: boolean
   autoLabel?: boolean
@@ -57,31 +55,35 @@ const defaultOptions: Options = {
 const getPackageRootPath = memoize((filename: string) => findRoot(filename))
 const hashArray = (arr: Array<string>) => hashString(arr.join(''))
 
-const createImportJSXAst = memoize((propertyName: string | undefined) => {
-  const importClause = FACTORY.createImportClause(
-    false,
-    undefined,
-    FACTORY.createNamedImports([
-      propertyName
-        ? FACTORY.createImportSpecifier(
-            FACTORY.createIdentifier('jsx'),
-            FACTORY.createIdentifier(propertyName),
-          )
-        : FACTORY.createImportSpecifier(
-            undefined,
-            FACTORY.createIdentifier('jsx'),
-          ),
-    ]),
-  )
-  const moduleSpecifier = FACTORY.createStringLiteral('@emotion/react')
+const createImportJSXAst = memoize(
+  (factory: ts.NodeFactory, propertyName: string | undefined) => {
+    const importClause = factory.createImportClause(
+      false,
+      undefined,
+      factory.createNamedImports([
+        propertyName
+          ? factory.createImportSpecifier(
+              false,
+              factory.createIdentifier('jsx'),
+              factory.createIdentifier(propertyName),
+            )
+          : factory.createImportSpecifier(
+              false,
+              undefined,
+              factory.createIdentifier('jsx'),
+            ),
+      ]),
+    )
+    const moduleSpecifier = factory.createStringLiteral('@emotion/react')
 
-  return FACTORY.createImportDeclaration(
-    undefined,
-    undefined,
-    importClause,
-    moduleSpecifier,
-  )
-})
+    return factory.createImportDeclaration(
+      undefined,
+      undefined,
+      importClause,
+      moduleSpecifier,
+    )
+  },
+)
 
 export function createEmotionPlugin(
   pluginOptions?: Options,
@@ -98,8 +100,9 @@ export function createEmotionPlugin(
     compilerOptions: ts.CompilerOptions,
   ) {
     const importCalls: ImportInfo[] = []
-    const moduleName = (importDeclarationNode.moduleSpecifier as ts.StringLiteral)
-      .text
+    const moduleName = (
+      importDeclarationNode.moduleSpecifier as ts.StringLiteral
+    ).text
     if (!importDeclarationNode.importClause) {
       return importCalls
     }
@@ -183,6 +186,7 @@ export function createEmotionPlugin(
           inserted = true
           return [
             createImportJSXAst(
+              context.factory,
               options?.jsxFactory ?? compilerOptions.jsxFactory,
             ),
             node,
@@ -219,10 +223,10 @@ export function createEmotionPlugin(
                 )
               })
               if (info) {
-                expression = FACTORY.createCallExpression(
+                expression = context.factory.createCallExpression(
                   expression.expression,
                   [],
-                  [FACTORY.createStringLiteral(expression.name.text)],
+                  [context.factory.createStringLiteral(expression.name.text)],
                 )
               }
             }
@@ -259,13 +263,14 @@ export function createEmotionPlugin(
                     stuffToHash,
                   )}${positionInFile}`
                   const [el, opts] = exp.arguments
-                  const targetAssignment = FACTORY.createPropertyAssignment(
-                    FACTORY.createIdentifier('target'),
-                    FACTORY.createStringLiteral(stableClassName),
-                  )
+                  const targetAssignment =
+                    context.factory.createPropertyAssignment(
+                      context.factory.createIdentifier('target'),
+                      context.factory.createStringLiteral(stableClassName),
+                    )
                   const args = [el]
                   args.push(
-                    FACTORY.createObjectLiteralExpression(
+                    context.factory.createObjectLiteralExpression(
                       opts && ts.isObjectLiteralExpression(opts)
                         ? opts.properties.concat(targetAssignment)
                         : [targetAssignment],
@@ -273,14 +278,14 @@ export function createEmotionPlugin(
                     ),
                   )
 
-                  const updatedCall = FACTORY.updateCallExpression(
+                  const updatedCall = context.factory.updateCallExpression(
                     exp,
                     exp.expression,
                     exp.typeArguments,
                     args,
                   )
 
-                  return FACTORY.updateCallExpression(
+                  return context.factory.updateCallExpression(
                     transformedNode,
                     updatedCall,
                     transformedNode.typeArguments,
@@ -311,12 +316,12 @@ export function createEmotionPlugin(
                   if (localNameNode && ts.isIdentifier(localNameNode)) {
                     const local = localNameNode.text
                     const fileName = basename(rawPath, extname(rawPath))
-                    transformedNode = FACTORY.updateCallExpression(
+                    transformedNode = context.factory.updateCallExpression(
                       transformedNode,
                       transformedNode.expression,
                       transformedNode.typeArguments,
                       transformedNode.arguments.concat([
-                        FACTORY.createStringLiteral(
+                        context.factory.createStringLiteral(
                           `label:${options
                             .labelFormat!.replace('[local]', local)
                             .replace('[filename]', fileName)};`,
@@ -356,12 +361,12 @@ export function createEmotionPlugin(
                   const comment = convert
                     .fromObject(sourcemapGenerator)
                     .toComment({ multiline: true })
-                  transformedNode = FACTORY.updateCallExpression(
+                  transformedNode = context.factory.updateCallExpression(
                     transformedNode,
                     transformedNode.expression,
                     transformedNode.typeArguments,
                     transformedNode.arguments.concat([
-                      FACTORY.createStringLiteral(comment),
+                      context.factory.createStringLiteral(comment),
                     ]),
                   )
                 }
