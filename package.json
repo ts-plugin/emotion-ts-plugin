@@ -24,7 +24,7 @@
     "postpublish": "pinst --enable"
   },
   "devDependencies": {
-    "@emotion/react": "^11.7.1",
+    "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.6.0",
     "@swc-node/jest": "^1.4.3",
     "@types/convert-source-map": "^1.5.2",
