@@ -16,7 +16,7 @@ TypeScript before transform:
 TypeScript after transform:
   import { jsx as _jsx } from "@emotion/react/jsx-runtime";
   export const Button = () => {
-    return _jsx("div", { css: { '.btn-text': { color: 'red' } } }, void 0);
+    return _jsx("div", { css: { '.btn-text': { color: 'red' } } });
   };
   
 

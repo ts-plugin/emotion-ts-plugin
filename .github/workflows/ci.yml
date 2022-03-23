@@ -72,6 +72,11 @@ jobs:
       - name: 'Install dependencies'
         run: yarn install --frozen-lockfile --registry https://registry.npmjs.org --network-timeout 300000
 
+      - name: Build
+        run: yarn build
+        env:
+          NODE_ENV: production
+
       - name: Publish
         run: |
           if git log -1 --pretty=%B | grep "^[0-9]\+\.[0-9]\+\.[0-9]\+$";
