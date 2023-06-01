@@ -20,47 +20,48 @@
     "postpublish": "pinst --enable"
   },
   "devDependencies": {
-    "@emotion/react": "^11.8.2",
-    "@emotion/styled": "^11.8.1",
-    "@swc-node/jest": "^1.4.3",
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@swc-node/jest": "^1.6.5",
+    "@swc/core": "^1.3.61",
     "@types/convert-source-map": "^2.0.0",
     "@types/find-root": "^1.1.2",
-    "@types/jest": "^29.0.0",
-    "@types/lodash": "^4.14.180",
-    "@types/react-dom": "^18.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.16.0",
-    "@typescript-eslint/parser": "^5.16.0",
-    "eslint": "^8.11.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-prettier": "^4.0.0",
-    "html-webpack-plugin": "^5.5.0",
+    "@types/jest": "^29.5.2",
+    "@types/lodash": "^4.14.195",
+    "@types/react-dom": "^18.2.4",
+    "@typescript-eslint/eslint-plugin": "^5.59.8",
+    "@typescript-eslint/parser": "^5.59.8",
+    "eslint": "^8.41.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "html-webpack-plugin": "^5.5.1",
     "husky": "8",
-    "jest": "^29.0.0",
+    "jest": "^29.5.0",
     "jest-specific-snapshot": "^8.0.0",
-    "lint-staged": "^13.0.0",
-    "mini-css-extract-plugin": "^2.6.0",
+    "lint-staged": "^13.2.2",
+    "mini-css-extract-plugin": "^2.7.6",
     "npm-run-all": "^4.1.5",
     "pinst": "^3.0.0",
-    "prettier": "^2.6.0",
+    "prettier": "^2.8.8",
     "prop-types": "^15.8.1",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "ts-loader": "^9.2.8",
-    "typescript": "^4.6.2",
-    "webpack": "^5.70.0",
-    "webpack-cli": "^5.0.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "ts-loader": "^9.4.3",
+    "typescript": "^5.0.4",
+    "webpack": "^5.85.0",
+    "webpack-cli": "^5.1.1"
   },
   "dependencies": {
-    "@emotion/hash": "^0.9.0",
+    "@emotion/hash": "^0.9.1",
     "convert-source-map": "^2.0.0",
     "find-root": "^1.1.0",
     "lodash": "^4.17.21",
-    "source-map": "^0.7.3",
-    "tslib": "^2.3.1"
+    "source-map": "^0.7.4",
+    "tslib": "^2.5.2"
   },
   "peerDependencies": {
-    "typescript": ">= 4.2"
+    "typescript": ">= 5"
   },
   "files": [
     "lib/**",
@@ -98,5 +99,6 @@
   "funding": {
     "type": "github",
     "url": "https://github.com/sponsors/Brooooooklyn"
-  }
+  },
+  "packageManager": "yarn@3.5.1"
 }

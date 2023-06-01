@@ -78,7 +78,6 @@ const createImportJSXAst = memoize(
 
     return factory.createImportDeclaration(
       undefined,
-      undefined,
       importClause,
       moduleSpecifier,
     )
@@ -405,7 +404,7 @@ export function createEmotionPlugin(
         file: basename(node.fileName),
         sourceRoot: '',
       })
-      const distNode = ts.visitNode(node, visitor)
+      const distNode = ts.visitNode(node, visitor) as ts.SourceFile
       if (inserted && options.jsxImportSource && distNode.statements.length) {
         // fIXME
         // typeScript private API https://github.com/microsoft/TypeScript/pull/39199/files#diff-1516c8349f7a625a2e4a2aa60f6bbe84e4b1a499128e8705d3087d893e01d367R5974
