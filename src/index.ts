@@ -194,7 +194,7 @@ export function createEmotionPlugin(
         return node
       }
 
-      if (options.autoLabel || options.sourcemap) {
+      if (options.autoLabel ?? options.sourcemap) {
         if (ts.isCallExpression(node)) {
           let { expression } = node
           if (
@@ -383,7 +383,7 @@ export function createEmotionPlugin(
 
       if (
         ts.isJsxAttribute(node) &&
-        node.name.text === 'css' &&
+        node.name.getText() === 'css' &&
         (compilerOptions.jsx === ts.JsxEmit.ReactJSX ||
           compilerOptions.jsx === ts.JsxEmit.ReactJSXDev) &&
         !importCalls.find((info) => {
