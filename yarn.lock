@@ -3029,7 +3029,7 @@ __metadata:
     "@typescript-eslint/parser": ^6.3.0
     convert-source-map: ^2.0.0
     eslint: ^8.46.0
-    eslint-config-prettier: ^9.0.0
+    eslint-config-prettier: ^10.0.0
     eslint-plugin-import: ^2.28.0
     eslint-plugin-prettier: ^5.0.0
     find-root: ^1.1.0
@@ -3228,14 +3228,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "eslint-config-prettier@npm:9.0.0"
+"eslint-config-prettier@npm:^10.0.0":
+  version: 10.1.8
+  resolution: "eslint-config-prettier@npm:10.1.8"
   peerDependencies:
     eslint: ">=7.0.0"
   bin:
     eslint-config-prettier: bin/cli.js
-  checksum: 362e991b6cb343f79362bada2d97c202e5303e6865888918a7445c555fb75e4c078b01278e90be98aa98ae22f8597d8e93d48314bec6824f540f7efcab3ce451
+  checksum: 9140e19f78f0dbc888b160bb72b85f8043bada7b12a548faa56cea0ba74f8ef16653250ffd014d85d9a376a88c4941c96a3cdc9d39a07eb3def6967166635bd8
   languageName: node
   linkType: hard
 
